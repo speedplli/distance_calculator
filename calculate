@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+require "vendor/autoload.php";
+/**
+ * PHP CLI Calculate file
+ */
+echo 'Please select your algorithm:' . PHP_EOL;
+echo '1: Hamming' . PHP_EOL;
+echo '2: Levenshtein' . PHP_EOL;
+$algo = trim(fgets(STDIN));
+if (empty($algo)) {
+    echo 'You need to select one';
+    exit(0);
+}
+if ($algo === '1') {
+    $algorithm = new \Calculation\Algorithms\Hamming();
+} elseif ($algo === '2') {
+    $algorithm = new \Calculation\Algorithms\Levenshtein();
+} else {
+    echo 'You didnt select one of the above algorithms' . PHP_EOL;
+    exit();
+}
+echo 'Please enter The string A' . PHP_EOL;
+$string_a = trim(fgets(STDIN));
+echo 'Please enter The string B' . PHP_EOL;
+$string_b = trim(fgets(STDIN));
+
+echo 'Result: ' . (new \Calculation\Distance($algorithm))->setData($string_a, $string_b)->distance() . ' operations';
+

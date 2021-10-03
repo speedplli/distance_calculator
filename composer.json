@@ -1,0 +1,20 @@
+{
+  "name": "speedplli/distance_calculator",
+  "description": "Class that do distance calculation based on selected algorithm",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mhrghoul",
+      "email": "speedplli@windowslive.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Calculation\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.3"
+  }
+}
